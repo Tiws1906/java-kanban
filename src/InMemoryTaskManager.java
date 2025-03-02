@@ -7,7 +7,12 @@ public class InMemoryTaskManager implements TaskManager {
     private final HashMap<Integer, Epic> epics = new HashMap<>();
     private final HashMap<Integer, Subtask> subtasks = new HashMap<>();
     private final InMemoryHistoryManager historyManager = new InMemoryHistoryManager();
+    private int nextId = 1;
 
+    @Override
+    public int ganerateId() {
+        return nextId++;
+    }
 
     // Метод задач
     @Override
@@ -35,7 +40,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public ArrayList<Task> getAllTasks() {
+    public List<Task> getAllTasks() {
         ArrayList<Task> tasksList = new ArrayList<>();
         for (Task task : tasks.values()) {
             tasksList.add(task);
@@ -94,7 +99,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public ArrayList<Subtask> getAllSubtasks() {
+    public List<Subtask> getAllSubtasks() {
         ArrayList<Subtask> subtasksList = new ArrayList<>();
         for (Subtask subtask : subtasks.values()) {
             subtasksList.add(subtask);
@@ -113,7 +118,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public ArrayList<Subtask> getEpicsSubtasks(int epicId) {
+    public List<Subtask> getEpicsSubtasks(int epicId) {
         Epic epic = epics.get(epicId);
         if (epic == null) {
             return null;
@@ -160,7 +165,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public ArrayList<Epic> getAllEpics() {
+    public List<Epic> getAllEpics() {
         ArrayList<Epic> epicsList = new ArrayList<>();
         for (Epic epic : epics.values()) {
             epicsList.add(epic);
@@ -177,7 +182,7 @@ public class InMemoryTaskManager implements TaskManager {
         }
 
 
-        ArrayList<Subtask> subtasksEpic = new ArrayList<>();
+        List<Subtask> subtasksEpic = new ArrayList<>();
         for (Integer subtaskId : epic.getSubtaskIds()) {
             subtasksEpic.add(subtasks.get(subtaskId));
         }

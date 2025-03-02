@@ -45,4 +45,6 @@ public interface TaskManager {
     void updateEpic(Epic epic);
 
     List<Task> getHistory();
+
+    int ganerateId();
 }
