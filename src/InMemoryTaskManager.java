@@ -7,12 +7,7 @@ public class InMemoryTaskManager implements TaskManager {
     private final HashMap<Integer, Epic> epics = new HashMap<>();
     private final HashMap<Integer, Subtask> subtasks = new HashMap<>();
     private final InMemoryHistoryManager historyManager = new InMemoryHistoryManager();
-    private int nextId = 1;
 
-    @Override
-    public int ganerateId() {
-        return nextId++;
-    }
 
     // Метод задач
     @Override

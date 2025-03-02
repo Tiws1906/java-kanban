@@ -38,10 +38,11 @@ class InMemoryTaskManagerTest {
     }
     @Test
     void testTaskIdConflict() {
-        TaskManager manager = Managers.getDefault();
+        Managers managers = new Managers();
+        TaskManager manager = managers.getDefault();
 
         Task task1 = new Task(1, "Task 1", "Description", TaskStatusList.NEW);
-        Task task2 = new Task(manager.ganerateId(), "Task 2", "Description", TaskStatusList.NEW);
+        Task task2 = new Task(managers.ganerateId(), "Task 2", "Description", TaskStatusList.NEW);
 
         manager.addTask(task1);
         manager.addTask(task2);

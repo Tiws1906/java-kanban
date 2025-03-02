@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface TaskManager {
-    int ganerateId();
 
     // Метод задач
     void addTask(Task task);
@@ -13,7 +12,7 @@ public interface TaskManager {
 
     Task getTask(int id);
 
-    ArrayList<Task> getAllTasks();
+    List<Task> getAllTasks();
 
     void updateTask(Task task);
 
@@ -26,11 +25,11 @@ public interface TaskManager {
 
     Subtask getSubtask(int id);
 
-    ArrayList<Subtask> getAllSubtasks();
+    List<Subtask> getAllSubtasks();
 
     void updateSubtask(Subtask subtask);
 
-    ArrayList<Subtask> getEpicsSubtasks(int epicId);
+    List<Subtask> getEpicsSubtasks(int epicId);
 
     //методы эпиков
     void addEpic(Epic epic);
@@ -41,7 +40,7 @@ public interface TaskManager {
 
     Epic getEpic(int id);
 
-    ArrayList<Epic> getAllEpics();
+    List<Epic> getAllEpics();
 
     void updateEpic(Epic epic);
 

@@ -3,15 +3,16 @@
 public class Main {
 
     public static void main(String[] args) {
-        InMemoryTaskManager tm = new InMemoryTaskManager();
+        Managers manager = new Managers();
+        InMemoryTaskManager tm = (InMemoryTaskManager) manager.getDefault();;
 
-        Task task = new Task(tm.ganerateId(), "task", "description", TaskStatusList.NEW);
-        Task task2 = new Task(tm.ganerateId(), "task2", "description", TaskStatusList.NEW);
-        Epic epic = new Epic(tm.ganerateId(), "epic", "description", TaskStatusList.NEW);
-        Subtask subtask = new Subtask(tm.ganerateId(), "subtask", "description", TaskStatusList.NEW, epic.getId());
-        Subtask subtask2 = new Subtask(tm.ganerateId(), "subtask2", "description", TaskStatusList.NEW, epic.getId());
-        Epic epic2 = new Epic(tm.ganerateId(), "epic2", "description", TaskStatusList.NEW);
-        Subtask subtask3 = new Subtask(tm.ganerateId(), "subtask3", "description", TaskStatusList.NEW, epic2.getId());
+        Task task = new Task(manager.ganerateId(), "task", "description", TaskStatusList.NEW);
+        Task task2 = new Task(manager.ganerateId(), "task2", "description", TaskStatusList.NEW);
+        Epic epic = new Epic(manager.ganerateId(), "epic", "description", TaskStatusList.NEW);
+        Subtask subtask = new Subtask(manager.ganerateId(), "subtask", "description", TaskStatusList.NEW, epic.getId());
+        Subtask subtask2 = new Subtask(manager.ganerateId(), "subtask2", "description", TaskStatusList.NEW, epic.getId());
+        Epic epic2 = new Epic(manager.ganerateId(), "epic2", "description", TaskStatusList.NEW);
+        Subtask subtask3 = new Subtask(manager.ganerateId(), "subtask3", "description", TaskStatusList.NEW, epic2.getId());
 
         tm.addEpic(epic2);
         tm.addEpic(epic);
